@@ -1,2 +1,104 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+import tkinter as tk
+import customtkinter as ctk
+from PIL import Image
+
+ctk.set_appearance_mode("light")
+ctk.set_default_color_theme("blue")
+
+inicio=ctk.CTk()
+inicio.geometry("600x600")
+
+class logo:
+        imagen_original = Image.open("ChatGPT Image 14 jul 2026, 02_20_03 p.m..png")
+        imagen_logo = ctk.CTkImage(
+        light_image=imagen_original,
+        dark_image=imagen_original,
+        size=(200, 150)
+    )
+        logo = ctk.CTkLabel(
+            inicio,
+            image=imagen_logo,
+            text=""
+        )   
+        logo.place(relx=0.5,y=70,anchor="center")
+   
+
+class interfaz:
+    titulo = ctk.CTkLabel(
+        inicio,
+        text="Inicio de sesión",
+        font=("Segoe UI", 26, "bold"),
+        text_color="#000000",
+        corner_radius=8,
+        anchor="w"
+    )
+    titulo.place(x=210, y=140)
+    
+   
+   
+    class inicio_sesión:
+        entrada_usuario = ctk.CTkEntry(
+            inicio,
+            width=300,
+            height=45,
+            placeholder_text="Ingresa tu usuario",
+            font=("Arial", 15),
+            text_color="#000000",
+            fg_color="#FFFFFF",
+            border_color="#6C63FF",
+            border_width=2,
+            corner_radius=8
+    )
+        entrada_usuario.place(x=160, y=220)
+
+    class contraseña:
+        contraseña_usuario = ctk.CTkEntry(
+           inicio,
+            width=300,
+            height=45,
+            placeholder_text="Ingresa tu contraseña",
+            font=("Arial", 15),
+            text_color="#000000",
+            fg_color="#FFFFFF",
+            border_color="#6C63FF",
+            border_width=2,
+            corner_radius=8
+)
+        contraseña_usuario.place(x=160, y=300)
+    
+    class botones:
+        ingresar=ctk.CTkButton(
+            inicio,
+            text="Ingresar",
+            width=100,
+            height=45,
+            font=("Arial", 16, "bold"),
+            fg_color="#6C63FF",
+            hover_color="#6C63FF",
+            text_color="#FFFFFF",
+            corner_radius=8,
+            command = conexión
+        ) 
+        ingresar.place(x=340, y=380)   
+    
+        salir=ctk.CTkButton(
+            inicio,
+            text="Salir",
+            width=100,
+            height=45,
+            font=("Arial", 16, "bold"),
+            fg_color="#6C63FF",
+            hover_color="#6C63FF",
+            text_color="#FFFFFF",
+            corner_radius=8, 
+            command=exit   
+              
+        )
+        salir.place(x=180, y=380)
+
+def exit(self):
+    self.inicio.destroy()
+
+
+
+inicio.mainloop()
